@@ -81,6 +81,9 @@ body {
   margin-left: 370px;
   padding: 40px;
   z-index: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 .section {
   border-radius: 24px;
@@ -88,6 +91,23 @@ body {
   margin-bottom: 36px;
   background: transparent;
   box-shadow: none;
+}
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+.intro-location { color: #aaa; font-size: 1.1rem; }
+.intro-title { font-size: 2.8rem; font-weight: bold; margin: 18px 0; }
+.intro-desc.small {
+  font-size: 1.15rem;
+  color: #bbb;
+  max-width: 520px;
+  margin: 16px auto 0 auto;
+  opacity: 0.9;
 }
 .section-title {
   display: flex;
@@ -100,16 +120,6 @@ body {
 .section-title svg {
   width: 32px;
   height: 32px;
-}
-.intro-location { color: #aaa; font-size: 1.1rem; }
-.intro-title { font-size: 2.8rem; font-weight: bold; margin: 18px 0; }
-.intro-desc { font-size: 1.2rem; margin-bottom: 24px; color: #ccc; }
-.intro-tags span {
-  background: #222;
-  border-radius: 20px;
-  padding: 6px 16px;
-  margin-right: 8px;
-  font-size: 1rem;
 }
 .works-title { font-size: 2rem; font-weight: bold; margin: 32px 0 16px 0; display: flex; align-items: center; }
 .work-item {
@@ -162,8 +172,15 @@ body {
   position: relative;
   cursor: pointer;
 }
-.side-menu a:hover { background: orange; }
-.side-menu svg { width: 32px; height: 32px; }
+.side-menu a.active,
+.side-menu a:hover {
+  background: #fff;
+}
+.side-menu a.active svg,
+.side-menu a:hover svg {
+  filter: brightness(0) invert(1);
+}
+.side-menu svg { width: 32px; height: 32px; transition: filter 0.2s; }
 
 .menu-tooltip {
   position: fixed;
