@@ -5,7 +5,6 @@ const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight*0.6);
 container.appendChild(renderer.domElement);
 
-// Tạo Sphere với màu tối
 const geometry = new THREE.SphereGeometry(4, 64, 64);
 const material = new THREE.MeshStandardMaterial({
     color: 0x222244,
