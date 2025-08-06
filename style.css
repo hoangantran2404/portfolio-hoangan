@@ -235,7 +235,7 @@ body {
   border-radius: 12px;
 }
 
-/* ===== SIDE MENU RIGHT (ĐỐI XỨNG NHƯ ẢNH) ===== */
+/* ===== SIDE MENU RIGHT (NHỎ GỌN, ĐỐI XỨNG, ICON NGUYÊN HÌNH) ===== */
 .side-menu {
   position: fixed;
   right: 24px;
@@ -243,46 +243,45 @@ body {
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   z-index: 10;
   background: #23262c;
-  border-radius: 28px;
-  padding: 22px 0;
-  box-shadow: 0 8px 24px 0 #000a;
-  width: 58px;
+  border-radius: 22px;
+  padding: 14px 0;
+  box-shadow: 0 4px 14px 0 #0007;
+  width: 44px;
   align-items: center;
-  border: 1.5px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
-/* Icon menu nhỏ gọn, cân đối */
 .side-menu a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 30px;
+  height: 30px;
   background: transparent;
   border-radius: 50%;
   transition: background .2s;
   position: relative;
   cursor: pointer;
 }
+
 .side-menu a svg {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   transition: filter 0.2s;
-  filter: invert(1); /* icon trắng */
+  filter: invert(1);
+  object-fit: contain;
 }
 
-/* Khi section active: nền trắng, icon đen */
 .side-menu a.active {
   background: #fff;
 }
 .side-menu a.active svg {
-  filter: invert(0); /* icon đen khi nền trắng */
+  filter: invert(0);
 }
 
-/* Hover, nếu không phải active: nền xám sáng hơn, icon trắng */
 .side-menu a:hover:not(.active),
 .side-menu a:focus:not(.active) {
   background: #23272f;
@@ -325,17 +324,17 @@ body {
     padding: 16px;
   }
   .side-menu {
-    right: 6px;
-    gap: 10px;
-    padding: 10px 0;
-    width: 34px;
+    right: 4px;
+    gap: 7px;
+    padding: 6px 0;
+    width: 26px;
   }
   .side-menu a {
-    width: 22px;
-    height: 22px;
+    width: 16px;
+    height: 16px;
   }
   .side-menu a svg {
-    width: 13px;
-    height: 13px;
+    width: 10px;
+    height: 10px;
   }
 }
