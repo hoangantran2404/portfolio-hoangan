@@ -2,327 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tran Hoang An - Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
+      background: black;
+      overflow: hidden;
       height: 100%;
       font-family: 'Space Grotesk', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      transition: background-color 0.5s ease, color 0.5s ease;
+      color: white;
     }
-    :root {
-      --bg-dark: #000;
-      --text-dark: #fff;
-      --bg-light: #fff;
-      --text-light: #000;
-      --accent: #888;
-    }
-    body.light-mode {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
-    nav {
-      width: 100%;
-      height: 60px;
-      background-color: #111;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 1rem;
+
+    #bg-ball {
       position: fixed;
       top: 0;
       left: 0;
-      z-index: 10;
-      box-sizing: border-box;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
     }
-    .nav-brand {
-      flex: 1;
-      color: white;
-      font-weight: bold;
-    }
-    .nav-menu {
-      flex: 2;
-      display: flex;
-      justify-content: center;
-    }
-    .nav-menu ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-      justify-content: center;
-    }
-    .nav-menu ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-    .nav-menu ul li a:hover {
-      color: var(--accent);
-    }
-    .nav-right {
-      flex: 1;
-      display: flex;
-      justify-content: flex-end;
-    }
-    .mode-toggle {
-      cursor: pointer;
-      color: var(--accent);
-      background-color: #222;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-    .section {
-      margin-top: 60px;
-      width: 100%;
-      min-height: calc(100vh - 60px);
-      padding: 2rem 1rem;
-      display: none;
-      box-sizing: border-box;
-    }
-    .section.active {
+
+    nav {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      background: #111;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      padding: 1rem 0;
+      z-index: 10;
     }
+
+    .nav-icons a {
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      margin: 1rem 0;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    .nav-icons a:hover {
+      color: #00bcd4;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      margin-right: 60px;
+      min-height: 100vh;
+    }
+
     .avatar {
       width: 160px;
       height: 160px;
       border-radius: 50%;
+      border: 4px solid #fff;
       object-fit: cover;
-      border: 4px solid var(--accent);
       margin-bottom: 1rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-      max-width: 800px;
-      text-align: left;
-    }
-    h2, h3, p {
-      max-width: 800px;
-      text-align: left;
-    }
-    @media (max-width: 768px) {
-      .nav-menu ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .nav-menu {
-        justify-content: flex-start;
-      }
-      .nav-brand, .nav-right {
-        flex: unset;
-        width: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-      }
-      .nav-right {
-        justify-content: center;
-      }
     }
   </style>
 </head>
-<body style="position: relative; z-index: 0; overflow: hidden;">
-  <canvas id="particles" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;"></canvas>
+<body>
+
+  <div id="bg-ball"></div>
+
   <nav>
-    <div class="nav-brand">Tran Hoang An</div>
-    <div class="nav-menu">
-      <ul>
-        <li><a href="#" onclick="showSection('home')">Home</a></li>
-        <li><a href="#" onclick="showSection('about')">About</a></li>
-        <li><a href="#" onclick="showSection('skills')">Skills</a></li>
-        <li><a href="#" onclick="showSection('projects')">Projects</a></li>
-        <li><a href="#" onclick="showSection('experience')">Experience</a></li>
-        <li><a href="#" onclick="showSection('contact')">Contact</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <div class="mode-toggle" onclick="toggleMode()">Toggle Light/Dark</div>
+    <div class="nav-icons">
+      <a href="#home" title="Home"><i class="fas fa-house"></i></a>
+      <a href="#about" title="About"><i class="fas fa-user"></i></a>
+      <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
+      <a href="#projects" title="Projects"><i class="fas fa-diagram-project"></i></a>
+      <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
+      <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
     </div>
   </nav>
 
-  <div id="home" class="section active">
-    <img src="avatar.jpg" alt="avatar" class="avatar">
+  <section id="home" class="section">
+    <img src="avatar.jpg" alt="Avatar" class="avatar" />
     <h1>Hi, my name is Tran Hoang An</h1>
     <p>Electrical & Computer Engineering Student</p>
-  </div>
+  </section>
 
-  <div id="about" class="section">
-    <img src="avatar.jpg" alt="avatar" class="avatar">
+  <section id="about" class="section">
     <h2>About</h2>
-    <p style="line-height: 1.6;">
-      I will start learning Electrical & Computer Engineering at Missouri University of Science and Technology (MST) in Fall 2025. My objectives are to engage with American culture and people, use work experiences as a way to network, relax, and grow personally. Additionally, I aim to build a strong and diverse experience list to support future applications to top tech companies.
-    </p>
-  </div>
+    <p>This is the About section.</p>
+  </section>
 
-  <div id="skills" class="section">
+  <section id="skills" class="section">
     <h2>Skills</h2>
-    <ul>
-      <li>C++ (basic & advanced)</li>
-      <li>Verilog (basic)</li>
-      <li>Video & Image Editing</li>
-      <li>Networking</li>
-      <li>Schedule organization</li>
-      <li>Adaptability to changing priorities</li>
-      <li>Dedicated and persistent in accomplishing tasks</li>
-    </ul>
-  </div>
+    <p>This is the Skills section.</p>
+  </section>
 
-  <div id="projects" class="section">
+  <section id="projects" class="section">
     <h2>Projects</h2>
+    <p>This is the Projects section.</p>
+  </section>
 
-    <h3 style="align-self: flex-start;">Verilog</h3>
-    <ul>
-      <li><strong>FPGA LED Controller:</strong> Designed a Verilog-based finite state machine to control LED sequences on FPGA board with switch inputs.</li>
-      <li><strong>ALU Design:</strong> Built and simulated a 4-bit Arithmetic Logic Unit (ALU) using Verilog with basic operations.</li>
-    </ul>
-
-    <h3 style="align-self: flex-start;">C++</h3>
-    <ul>
-      <li><strong>Robotics Competition – Silver Medalist:</strong> Designed and controlled automatic robots, winning second place in a competitive robotics event.</li>
-      <li><strong>Student Management System:</strong> Built a CLI app to manage students’ scores, attendance, and ranking using OOP in C++.</li>
-    </ul>
-
-    <h3 style="align-self: flex-start;">Coffee Production & Packaging</h3>
-    <ul>
-      <li><strong>Practical Business Experience:</strong> I gained practical business experience through my family's coffee production and packaging company in Ho Chi Minh City. I was actively involved in every stage of the process, including harvesting, manufacturing, quality control, packaging, and distribution to local markets. This hands-on experience gave me a deep understanding of operations, logistics, and product quality management.</li>
-    </ul>
-  </div>
-
-  <div id="experience" class="section">
+  <section id="experience" class="section">
     <h2>Experience</h2>
-    <ul>
-      <li>
-        <strong>Feb 2024 – May 2024</strong><br/>
-        <em>Teaching Assistant – High School Mathematics Department</em><br/>
-        - Assisted math teachers with lesson planning and weekly content design.<br/>
-        - Improved classroom learning through structured teaching materials.
-      </li>
-      <br/>
-      <li>
-        <strong>Sep 2023 – May 2025</strong><br/>
-        <em>Vice President – Tech Club (IT Club)</em><br/>
-        - Led and organized tech workshops on FPGA and microcontroller systems.<br/>
-        - Mentored members in C++ fundamentals and fostered collaboration.
-      </li>
-    </ul>
-  </div>
+    <p>This is the Experience section.</p>
+  </section>
 
-  <div id="contact" class="section">
+  <section id="contact" class="section">
     <h2>Contact</h2>
-    <ul>
-      <li><strong>Location:</strong> Missouri, US</li>
-      <li><strong>Phone:</strong> (+84) 908909036</li>
-      <li><strong>Email:</strong> ngotranhoangan2007@gmail.com</li>
-      <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/feed/" target="_blank">linkedin.com/hoangan</a></li>
-      <li><strong>Facebook:</strong> <a href="https://www.facebook.com/hoangan.2404" target="_blank">facebook.com/hoangan.2404</a></li>
-    </ul>
-  </div>
+    <p>This is the Contact section.</p>
+  </section>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-    }
-  </script>
-<script>
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+    window.addEventListener("DOMContentLoaded", () => {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 8;
 
-  const mouse = { x: null, y: null, radius: 100 };
-  window.addEventListener('mousemove', e => {
-    mouse.x = e.x;
-    mouse.y = e.y;
-  });
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.getElementById("bg-ball").appendChild(renderer.domElement);
 
-  window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-  });
+      const geometry = new THREE.SphereGeometry(3, 128, 128);
+      const material = new THREE.MeshStandardMaterial({
+        color: 0x00ffff,
+        metalness: 0.8,
+        roughness: 0.3,
+        emissive: 0x00ffff,
+        emissiveIntensity: 0.6
+      });
 
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.size = Math.random() * 1.2 + 0.5;
-      this.baseX = this.x;
-      this.baseY = this.y;
-      this.density = Math.random() * 30 + 1;
-      this.angle = Math.random() * Math.PI * 2;
-      this.speed = Math.random() * 0.3 + 0.1;
-    }
-    update() {
-      const dx = mouse.x - this.x;
-      const dy = mouse.y - this.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < mouse.radius) {
-        const angle = Math.atan2(dy, dx);
-        const force = (mouse.radius - distance) / mouse.radius;
-        this.x -= Math.cos(angle) * force * this.density;
-        this.y -= Math.sin(angle) * force * this.density;
-      } else {
-        this.angle += 0.01;
-        this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed;
-      }
-    }
-    draw() {
-      ctx.fillStyle = document.body.classList.contains('light-mode') ? '#000' : '#fff';
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
+      const sphere = new THREE.Mesh(geometry, material);
+      scene.add(sphere);
 
-  let particlesArray = [];
-  function initParticles() {
-    particlesArray = [];
-    for (let i = 0; i < 200; i++) {
-      particlesArray.push(new Particle());
-    }
-  }
+      const ambient = new THREE.AmbientLight(0xffffff, 0.3);
+      scene.add(ambient);
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < particlesArray.length; i++) {
-      for (let j = i + 1; j < particlesArray.length; j++) {
-        const dx = particlesArray[i].x - particlesArray[j].x;
-        const dy = particlesArray[i].y - particlesArray[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        if (distance < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = document.body.classList.contains('light-mode') ? '#aaa' : '#555';
-          ctx.lineWidth = 0.5;
-          ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
-          ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
-          ctx.stroke();
+      const light1 = new THREE.PointLight(0xffffff, 1.5);
+      light1.position.set(10, 10, 10);
+      scene.add(light1);
+
+      const light2 = new THREE.PointLight(0x00ffff, 1.2);
+      light2.position.set(-10, -10, 5);
+      scene.add(light2);
+
+      const clock = new THREE.Clock();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        const time = clock.getElapsedTime();
+        const pos = sphere.geometry.attributes.position;
+        for (let i = 0; i < pos.count; i++) {
+          const x = pos.getX(i);
+          const y = pos.getY(i);
+          const z = pos.getZ(i);
+          const offset = Math.sin(time * 2 + i) * 0.015;
+          const len = Math.sqrt(x * x + y * y + z * z);
+          pos.setXYZ(
+            i,
+            x + (x / len) * offset,
+            y + (y / len) * offset,
+            z + (z / len) * offset
+          );
         }
+        pos.needsUpdate = true;
+        sphere.geometry.computeVertexNormals();
+        sphere.rotation.y += 0.002;
+        sphere.rotation.x += 0.001;
+        renderer.render(scene, camera);
       }
-      particlesArray[i].update();
-      particlesArray[i].draw();
-    }
-    requestAnimationFrame(animateParticles);
-  }
 
-  initParticles();
-  animateParticles();
-</script>
+      animate();
+
+      window.addEventListener("resize", () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    });
+  </script>
 </body>
 </html>
