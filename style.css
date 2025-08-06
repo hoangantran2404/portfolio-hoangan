@@ -250,7 +250,7 @@ body {
   border-radius: 12px;
 }
 
-/* SIDE MENU ICONS EFFECTS */
+/* SIDE MENU RIGHT DESIGN & ICON EFFECTS */
 .side-menu {
   position: fixed;
   right: 32px;
@@ -260,30 +260,38 @@ body {
   flex-direction: column;
   gap: 30px;
   z-index: 10;
+  background: #23262c;
+  border-radius: 32px;
+  padding: 32px 0;
+  box-shadow: 0 6px 36px 0 #0009;
+  width: 80px;
+  align-items: center;
+  border: 1.5px solid rgba(255,255,255,0.03);
 }
 
+/* Icon menu bên trong */
 .side-menu a {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: #222;
+  background: transparent;
   border-radius: 50%;
-  box-shadow: 0 0 8px #0004;
   transition: background .2s;
   position: relative;
   cursor: pointer;
 }
 
+/* Mặc định: icon trắng, nền trong suốt */
 .side-menu a svg {
   width: 32px;
   height: 32px;
   transition: filter 0.2s;
-  filter: invert(1); /* icon trắng khi nền đen */
+  filter: invert(1); /* icon trắng */
 }
 
-/* Khi section active (đang ở viewport) -> nền trắng, icon đen */
+/* Khi section active: nền trắng, icon đen */
 .side-menu a.active {
   background: #fff;
 }
@@ -291,12 +299,14 @@ body {
   filter: invert(0); /* icon đen khi nền trắng */
 }
 
-/* Hover, nếu không phải active -> nền đen, icon trắng */
-.side-menu a:hover:not(.active) {
-  background: #000;
+/* Hover, nếu không phải active: nền xám sáng hơn, icon trắng */
+.side-menu a:hover:not(.active),
+.side-menu a:focus:not(.active) {
+  background: #23272f;
 }
-.side-menu a:hover:not(.active) svg {
-  filter: invert(1); /* icon trắng khi hover nền đen */
+.side-menu a:hover:not(.active) svg,
+.side-menu a:focus:not(.active) svg {
+  filter: invert(1); /* icon trắng khi hover nền xám */
 }
 
 /* Đảm bảo icon luôn tương phản rõ ràng */
@@ -305,7 +315,7 @@ body {
   outline: none;
 }
 
-/* Tooltip */
+/* Tooltip giữ nguyên */
 .menu-tooltip {
   position: fixed;
   background: #222;
@@ -336,5 +346,7 @@ body {
   .side-menu {
     right: 8px;
     gap: 16px;
+    padding: 16px 0;
+    width: 60px;
   }
 }
