@@ -1,14 +1,10 @@
 #abstract-ball-bg {
   position: fixed;
-  top: 0;
   left: 0;
+  bottom: 0;
   width: 100vw;
-  height: 100vh;
-  z-index: 0; /* Đảm bảo nằm phía sau mọi nội dung */
-  pointer-events: none; /* Không ảnh hưởng đến thao tác chuột */
+  height: 60vh; /* chỉ chiếm phần dưới */
+  z-index: 0;
+  pointer-events: none;
   overflow: hidden;
-}
-.main-content, .sidebar, ... {
-  position: relative;
-  z-index: 1;
 }
