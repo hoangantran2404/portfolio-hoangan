@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Sidebar trái -->
+  <!-- Sidebar trái: vùng xám nhỏ gọn, tooltip chỉ hiện khi hover/touch -->
   <aside class="sidebar">
     <div class="profile-card">
       <div class="status" data-tooltip="Project Status">Available for new projects</div>
@@ -27,7 +27,6 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
   <main class="main-content">
     <!-- Home Section -->
     <section class="home section" id="home">
@@ -115,7 +114,7 @@
     </section>
   </main>
 
-  <!-- Side Menu phải với tooltip bên trái icon, tiếng Anh -->
+  <!-- Menu phải với tooltip bên trái icon -->
   <nav class="side-menu">
     <a href="#home" class="menu-item" data-tooltip="Home">
       <svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="14" stroke="#fff" stroke-width="2"/><path d="M10 18v6h4v-4h4v4h4v-6l-6-5-6 5z" fill="#fff"/></svg>
@@ -134,25 +133,22 @@
     </a>
   </nav>
 
-  <!-- Tooltip Script cho cả sidebar và side-menu (menu phải tooltip bên trái icon) -->
+  <!-- Tooltip Script cho sidebar và menu phải -->
   <script>
-    function showTooltip(e, text, side = "right") {
+    function showTooltip(e, text, leftAdjust = false) {
       let tooltip = document.createElement('div');
       tooltip.className = 'menu-tooltip';
       tooltip.textContent = text;
       document.body.appendChild(tooltip);
       let rect = e.getBoundingClientRect();
       setTimeout(function () {
-        // Need this for offsetWidth to be correct
         if (e.closest('.sidebar')) {
+          // Tooltip bên phải sidebar, canh giữa chiều cao phần tử
           tooltip.style.left = (rect.right + 12) + 'px';
           tooltip.style.top = (rect.top + rect.height/2 - tooltip.offsetHeight/2) + 'px';
         } else if (e.closest('.side-menu')) {
-          // Hiển thị tooltip bên trái icon menu phải
+          // Tooltip bên trái icon menu phải
           tooltip.style.left = (rect.left - tooltip.offsetWidth - 12) + 'px';
-          tooltip.style.top = (rect.top + rect.height/2 - tooltip.offsetHeight/2) + 'px';
-        } else {
-          tooltip.style.left = (rect.right + 10) + 'px';
           tooltip.style.top = (rect.top + rect.height/2 - tooltip.offsetHeight/2) + 'px';
         }
       }, 0);
@@ -172,13 +168,25 @@
       item.addEventListener('mouseleave', function(){
         hideTooltip(item);
       });
+      item.addEventListener('touchstart', function(){
+        showTooltip(item, item.getAttribute('data-tooltip'));
+      });
+      item.addEventListener('touchend', function(){
+        hideTooltip(item);
+      });
     });
-    // Tooltip cho menu bên phải (bên trái icon)
+    // Tooltip cho menu phải
     document.querySelectorAll('.side-menu .menu-item').forEach(function(item){
       item.addEventListener('mouseenter', function(){
-        showTooltip(item, item.getAttribute('data-tooltip'), "left");
+        showTooltip(item, item.getAttribute('data-tooltip'), true);
       });
       item.addEventListener('mouseleave', function(){
+        hideTooltip(item);
+      });
+      item.addEventListener('touchstart', function(){
+        showTooltip(item, item.getAttribute('data-tooltip'), true);
+      });
+      item.addEventListener('touchend', function(){
         hideTooltip(item);
       });
     });
@@ -188,6 +196,12 @@
         showTooltip(item, item.getAttribute('data-tooltip'));
       });
       item.addEventListener('mouseleave', function(){
+        hideTooltip(item);
+      });
+      item.addEventListener('touchstart', function(){
+        showTooltip(item, item.getAttribute('data-tooltip'));
+      });
+      item.addEventListener('touchend', function(){
         hideTooltip(item);
       });
     });
