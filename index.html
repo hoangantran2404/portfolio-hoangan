@@ -2,21 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tran Hoang An Portfolio</title>
+  <title>Jayden Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <!-- Đã xóa abstract-ball.css, không còn hiệu ứng 3D bóng -->
 </head>
 <body>
-  <!-- Không còn hiệu ứng 3D bóng giữa màn hình -->
-
   <!-- Sidebar trái -->
   <aside class="sidebar">
     <div class="profile-card">
       <div class="status">Available for 3 projects</div>
       <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=facearea&w=256&h=256" alt="Jayden" class="profile-img">
       <div class="profile-name">Jayden</div>
-      <div class="profile-email">ngotranhoangan2007@gmail.com</div>
+      <div class="profile-email">Jayden.design@gmail.com</div>
       <div class="profile-location">Based in San Fransisco, CA</div>
       <div class="profile-social">
         <a href="#">
@@ -39,20 +36,20 @@
   <!-- Nội dung chính bên phải -->
   <main class="main-content">
     <!-- Section: Introduction -->
-    <section class="intro card" id="intro">
-      <div class="intro-location">Missouri</div>
+    <section class="intro section" id="intro">
+      <div class="intro-location">San Francisco, CA 10:24 AM</div>
       <h1 class="intro-title">Making Your World a Pain Free Experience</h1>
       <p class="intro-desc">My passion lies in crafting elegant, straightforward digital experiences. It's a love for simplicity, pure and simple.</p>
       <div class="intro-tags">
         <span>Branding</span>
-        <span>digital IC desin engineer</span>
+        <span>Art Direction</span>
         <span>UI Design</span>
-        <span>Software Development</span>
+        <span>Webflow Development</span>
       </div>
     </section>
 
     <!-- Section: Selected Work -->
-    <section class="works card" id="works">
+    <section class="works section" id="works">
       <div class="section-title">
         <svg width="32" height="32" viewBox="0 0 32 32"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#fff"/></svg>
         Selected Work
@@ -69,7 +66,7 @@
     </section>
 
     <!-- Section: Services -->
-    <section class="services card" id="services">
+    <section class="services section" id="services">
       <div class="section-title">
         <svg width="32" height="32" viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="12" rx="6" stroke="#fff" stroke-width="2"/><path d="M10 10V6h12v4" stroke="#fff" stroke-width="2"/></svg>
         Graphic Design
@@ -86,7 +83,7 @@
     </section>
 
     <!-- Section: About -->
-    <section class="about card" id="about">
+    <section class="about section" id="about">
       <div class="section-title">
         <svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="12" r="6" stroke="#fff" stroke-width="2"/><rect x="8" y="20" width="16" height="6" rx="3" stroke="#fff" stroke-width="2"/></svg>
         About Me
@@ -102,25 +99,44 @@
     </section>
   </main>
 
-  <!-- Side Menu nhỏ bên phải, dùng SVG inline -->
+  <!-- Side Menu nhỏ bên phải, dùng SVG inline và tooltip -->
   <nav class="side-menu">
-    <a href="#intro">
+    <a href="#intro" class="menu-item" data-tooltip="Home">
       <svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="14" stroke="#fff" stroke-width="2"/><path d="M10 18v6h4v-4h4v4h4v-6l-6-5-6 5z" fill="#fff"/></svg>
     </a>
-    <a href="#works">
+    <a href="#works" class="menu-item" data-tooltip="Selected Work">
       <svg width="32" height="32" fill="none"><rect x="6" y="6" width="20" height="20" rx="4" stroke="#fff" stroke-width="2"/><circle cx="16" cy="16" r="6" fill="#fff"/></svg>
     </a>
-    <a href="#services">
+    <a href="#services" class="menu-item" data-tooltip="Services">
       <svg width="32" height="32" fill="none"><rect x="4" y="10" width="24" height="12" rx="6" stroke="#fff" stroke-width="2"/><path d="M10 10V6h12v4" stroke="#fff" stroke-width="2"/></svg>
     </a>
-    <a href="#about">
+    <a href="#about" class="menu-item" data-tooltip="About Me">
       <svg width="32" height="32" fill="none"><circle cx="16" cy="12" r="6" stroke="#fff" stroke-width="2"/><rect x="8" y="20" width="16" height="6" rx="3" stroke="#fff" stroke-width="2"/></svg>
     </a>
-    <a href="#contact">
+    <a href="#contact" class="menu-item" data-tooltip="Contact">
       <svg width="32" height="32" fill="none"><rect x="6" y="8" width="20" height="16" rx="4" stroke="#fff" stroke-width="2"/><path d="M6 8l10 8 10-8" stroke="#fff" stroke-width="2"/></svg>
     </a>
   </nav>
-
-  <!-- Đã xóa abstract-ball.js, không còn hiệu ứng 3D bóng -->
+  <script>
+    // Tooltip cho menu bên phải
+    document.querySelectorAll('.menu-item').forEach(function(item){
+      item.addEventListener('mouseenter', function(){
+        let tooltip = document.createElement('div');
+        tooltip.className = 'menu-tooltip';
+        tooltip.textContent = item.getAttribute('data-tooltip');
+        document.body.appendChild(tooltip);
+        let rect = item.getBoundingClientRect();
+        tooltip.style.left = (rect.right + 10) + 'px';
+        tooltip.style.top = (rect.top + rect.height/2 - 18) + 'px';
+        item._tooltip = tooltip;
+      });
+      item.addEventListener('mouseleave', function(){
+        if(item._tooltip) {
+          document.body.removeChild(item._tooltip);
+          item._tooltip = null;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
