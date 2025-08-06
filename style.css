@@ -149,15 +149,16 @@ body {
   border-radius: 24px;
   padding: 32px;
 }
-.services-title {
-  font-size: 2rem;
-  font-weight: bold;
+.section-title {
   display: flex;
   align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  gap: 12px;
 }
-.services-title img {
+.section-title img {
   width: 32px;
-  margin-right: 12px;
+  height: 32px;
 }
 .services-list {
   margin: 24px 0;
