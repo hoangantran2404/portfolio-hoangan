@@ -1,247 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Tran Hoang An - Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Portfolio - Jayden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="abstract-ball.css">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      height: 100%;
-      font-family: 'Space Grotesk', sans-serif;
-      color: white;
-    }
-
-    #bg-ball {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    nav {
-      position: fixed;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 60px;
-      background: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
-      z-index: 10;
-    }
-
-    .nav-icons a {
-      color: white;
-      font-size: 1.2rem;
-      text-decoration: none;
-      margin: 1rem 0;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    .nav-icons a:hover {
-      color: #00bcd4;
-    }
-
-    .section {
-      padding: 4rem 2rem;
-      margin-right: 60px;
-      min-height: 100vh;
-    }
-
-    .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-  </style>
 </head>
 <body>
-
-  <div id="bg-ball"></div>
-
-  <nav>
-    <div class="nav-icons">
-      <a href="#home" title="Home"><i class="fas fa-house"></i></a>
-      <a href="#about" title="About"><i class="fas fa-user"></i></a>
-      <a href="#skills" title="Skills"><i class="fas fa-code"></i></a>
-      <a href="#projects" title="Projects"><i class="fas fa-diagram-project"></i></a>
-      <a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a>
-      <a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a>
+  <!-- Background 3D Ball -->
+  <div id="abstract-ball-bg"></div>
+  
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile-card">
+      <div class="status">Available for 3 projects</div>
+      <img src="avatar.jpg" alt="Jayden" class="profile-img">
+      <div class="profile-name">Jayden</div>
+      <div class="profile-email">Jayden.design@gmail.com</div>
+      <div class="profile-location">Based in San Fransisco, CA</div>
+      <div class="profile-social">
+        <a href="#"><img src="icon-x.svg" alt="X"></a>
+        <a href="#"><img src="icon-dribbble.svg" alt="Dribbble"></a>
+        <a href="#"><img src="icon-instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="icon-facebook.svg" alt="Facebook"></a>
+      </div>
+      <a href="#" class="btn-get-started">Get Started <span>→</span></a>
     </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Introduction -->
+    <section class="intro">
+      <div class="intro-location">San Francisco, CA 10:24 AM</div>
+      <div class="intro-title">Making Your World a Pain Free Experience</div>
+      <div class="intro-desc">
+        My passion lies in crafting elegant, straightforward digital experiences. It's a love for simplicity, pure and simple.
+      </div>
+      <div class="intro-tags">
+        <span>Branding</span><span>Art Direction</span><span>UI Design</span><span>Webflow Development</span>
+      </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section class="works">
+      <div class="works-title"><span class="dot"></span> Selected Work <span class="dot"></span></div>
+      <div class="work-item">
+        <img src="work-helvetica.jpg" alt="Helve Tica Website Redesign">
+        <div class="work-info">
+          <div class="work-category">Website Design</div>
+          <div class="work-name">Helve Tica Website Redesign</div>
+          <div class="work-date">May 2024</div>
+          <a href="#" class="work-link">→</a>
+        </div>
+      </div>
+      <!-- Other works... -->
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+      <div class="services-title"><img src="icon-graphic.svg" alt=""> Graphic Design <span>(01)</span></div>
+      <ul class="services-list">
+        <li>Typography & Color Systems</li>
+        <li>Logo Design</li>
+        <li>Brand Guidelines</li>
+      </ul>
+      <div class="services-other">
+        <div class="service-tag">UI/UX Design (02)</div>
+        <div class="service-tag">Webflow Dev (03)</div>
+      </div>
+    </section>
+
+    <!-- About Me -->
+    <section class="about">
+      <div class="about-title">Behind every great design is an even greater story</div>
+      <div class="about-desc">
+        Every design has a starting point, and for truly impactful visuals. It's the narrative that guides the creative process, ensuring the final product resonates with meaning and purpose. We believe that understanding the story is paramount.
+      </div>
+      <div class="about-works">
+        <div class="work-card">@Jayden.design</div>
+        <div class="work-card"><img src="project1.jpg" alt=""></div>
+        <div class="work-card"><img src="project2.jpg" alt=""></div>
+        <div class="work-card"><img src="project3.jpg" alt=""></div>
+      </div>
+      <!-- Slider arrows... -->
+    </section>
+  </main>
+
+  <!-- Sidebar navigation (right) -->
+  <nav class="sidebar-nav">
+    <a href="#home"><img src="icon-home.svg" alt="Home"></a>
+    <a href="#works"><img src="icon-works.svg" alt="Works"></a>
+    <a href="#services"><img src="icon-services.svg" alt="Services"></a>
+    <a href="#about"><img src="icon-about.svg" alt="About"></a>
+    <a href="#contact"><img src="icon-contact.svg" alt="Contact"></a>
   </nav>
 
-  <section id="home" class="section">
-    <img src="avatar.jpg" alt="Avatar" class="avatar" />
-    <h1>Hi, my name is Tran Hoang An</h1>
-    <p>Electrical & Computer Engineering Student</p>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About</h2>
-    <p>This is the About section.</p>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <p>This is the Skills section.</p>
-  </section>
-
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <p>This is the Projects section.</p>
-  </section>
-
-  <section id="experience" class="section">
-    <h2>Experience</h2>
-    <p>This is the Experience section.</p>
-  </section>
-
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>This is the Contact section.</p>
-  </section>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 8;
-
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.getElementById("bg-ball").appendChild(renderer.domElement);
-
-      const geometry = new THREE.SphereGeometry(3, 128, 128);
-      const material = new THREE.MeshStandardMaterial({
-        color: 0x00ffff,
-        metalness: 0.8,
-        roughness: 0.3,
-        emissive: 0x00ffff,
-        emissiveIntensity: 0.6
-      });
-
-      const sphere = new THREE.Mesh(geometry, material);
-      scene.add(sphere);
-
-      const ambient = new THREE.AmbientLight(0xffffff, 0.3);
-      scene.add(ambient);
-
-      const light1 = new THREE.PointLight(0xffffff, 1.5);
-      light1.position.set(10, 10, 10);
-      scene.add(light1);
-
-      const light2 = new THREE.PointLight(0x00ffff, 1.2);
-      light2.position.set(-10, -10, 5);
-      scene.add(light2);
-
-      const clock = new THREE.Clock();
-
-      function animate() {
-        requestAnimationFrame(animate);
-        const time = clock.getElapsedTime();
-        const pos = sphere.geometry.attributes.position;
-        for (let i = 0; i < pos.count; i++) {
-          const x = pos.getX(i);
-          const y = pos.getY(i);
-          const z = pos.getZ(i);
-          const offset = Math.sin(time * 2 + i) * 0.015;
-          const len = Math.sqrt(x * x + y * y + z * z);
-          pos.setXYZ(
-            i,
-            x + (x / len) * offset,
-            y + (y / len) * offset,
-            z + (z / len) * offset
-          );
-        }
-        pos.needsUpdate = true;
-        sphere.geometry.computeVertexNormals();
-        sphere.rotation.y += 0.002;
-        sphere.rotation.x += 0.001;
-        renderer.render(scene, camera);
-      }
-
-      animate();
-
-      window.addEventListener("resize", () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    });
-  </script>
-  <script>
-const container = document.getElementById('abstract-ball-bg');
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-container.appendChild(renderer.domElement);
-
-// Tạo hình cầu
-const geometry = new THREE.SphereGeometry(4, 64, 64);
-const material = new THREE.MeshStandardMaterial({
-    color: 0x222266,
-    roughness: 0.25,
-    metalness: 0.7,
-    transparent: true,
-    opacity: 0.7
-});
-const sphere = new THREE.Mesh(geometry, material);
-scene.add(sphere);
-
-// Thêm hiệu ứng abstract bằng noise/displacement
-const noise = new THREE.SimplexNoise();
-geometry.vertices.forEach(v => {
-    v.x += noise.noise3d(v.x, v.y, v.z) * 0.3;
-    v.y += noise.noise3d(v.x, v.y, v.z) * 0.3;
-    v.z += noise.noise3d(v.x, v.y, v.z) * 0.3;
-});
-geometry.verticesNeedUpdate = true;
-
-// Ánh sáng
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
-scene.add(ambientLight);
-const pointLight = new THREE.PointLight(0xffffff, 1);
-pointLight.position.set(10, 10, 10);
-scene.add(pointLight);
-
-// Camera vị trí
-camera.position.z = 10;
-
-// Animation
-function animate() {
-    requestAnimationFrame(animate);
-    sphere.rotation.y += 0.003;
-    sphere.rotation.x += 0.001;
-    renderer.render(scene, camera);
-}
-animate();
-
-// Responsive
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-});
-</script>
-  <script src="js/backgroundBall.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="abstract-ball.js"></script>
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="abstract-ball.js"></script>
 </body>
 </html>
