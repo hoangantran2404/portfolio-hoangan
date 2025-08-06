@@ -185,6 +185,61 @@
       });
     });
   </script>
+  <script>
+const container = document.getElementById('abstract-ball-bg');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+container.appendChild(renderer.domElement);
+
+// Tạo hình cầu
+const geometry = new THREE.SphereGeometry(4, 64, 64);
+const material = new THREE.MeshStandardMaterial({
+    color: 0x222266,
+    roughness: 0.25,
+    metalness: 0.7,
+    transparent: true,
+    opacity: 0.7
+});
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+// Thêm hiệu ứng abstract bằng noise/displacement
+const noise = new THREE.SimplexNoise();
+geometry.vertices.forEach(v => {
+    v.x += noise.noise3d(v.x, v.y, v.z) * 0.3;
+    v.y += noise.noise3d(v.x, v.y, v.z) * 0.3;
+    v.z += noise.noise3d(v.x, v.y, v.z) * 0.3;
+});
+geometry.verticesNeedUpdate = true;
+
+// Ánh sáng
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+scene.add(ambientLight);
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(10, 10, 10);
+scene.add(pointLight);
+
+// Camera vị trí
+camera.position.z = 10;
+
+// Animation
+function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.y += 0.003;
+    sphere.rotation.x += 0.001;
+    renderer.render(scene, camera);
+}
+animate();
+
+// Responsive
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
+</script>
   <script src="js/backgroundBall.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="abstract-ball.js"></script>
