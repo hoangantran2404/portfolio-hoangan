@@ -10,7 +10,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 370px; /* giữ nguyên chiều rộng */
+  width: 370px;
   height: 100vh;
   z-index: 2;
   display: flex;
@@ -24,10 +24,9 @@ body {
   width: 94%;
   max-width: 340px;
   min-width: 260px;
-  /* Mở rộng trên/dưới, cách đều cạnh trên/dưới màn hình */
   margin-top: 48px;
   margin-bottom: 48px;
-  border-radius: 36px; /* bo tròn */
+  border-radius: 36px;
   background: #222;
   box-shadow: 0 0 32px #0006;
   text-align: center;
@@ -36,7 +35,6 @@ body {
   align-items: center;
 }
 
-/* ===== SIDEBAR CONTENT ===== */
 .profile-img {
   width: 160px;
   height: 160px;
@@ -240,29 +238,29 @@ body {
 /* ===== SIDE MENU RIGHT ===== */
 .side-menu {
   position: fixed;
-  right: 14px;
+  right: 18px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 22px;
   z-index: 10;
   background: #23262c;
-  border-radius: 28px;
-  padding: 13px 0;              /* padding nhỏ hơn */
+  border-radius: 36px;
+  padding: 38px 0;              /* padding trên/dưới lớn hơn */
   box-shadow: 0 6px 36px 0 #0009;
-  width: 39px;                  /* chiều ngang nhỏ */
+  width: 92px;                  /* chiều ngang rộng hơn cho vùng xám */
   align-items: center;
   border: 1.5px solid rgba(255,255,255,0.03);
 }
 
-/* Icon menu bên trong (nhỏ hơn) */
+/* Icon menu bên trong (to hơn) */
 .side-menu a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;        /* icon nhỏ */
-  height: 26px;
+  width: 62px;        /* icon to hơn */
+  height: 62px;
   background: transparent;
   border-radius: 50%;
   transition: background .2s;
@@ -270,8 +268,8 @@ body {
   cursor: pointer;
 }
 .side-menu a svg {
-  width: 15px;        /* icon trắng nhỏ hơn nữa */
-  height: 15px;
+  width: 36px;        /* icon SVG to hơn */
+  height: 36px;
   transition: filter 0.2s;
   filter: invert(1); /* icon trắng */
 }
@@ -328,17 +326,17 @@ body {
     padding: 16px;
   }
   .side-menu {
-    right: 6px;
-    gap: 6px;
-    padding: 6px 0;
-    width: 28px;
+    right: 8px;
+    gap: 12px;
+    padding: 18px 0;
+    width: 54px;
   }
   .side-menu a {
-    width: 18px;
-    height: 18px;
+    width: 38px;
+    height: 38px;
   }
   .side-menu a svg {
-    width: 11px;
-    height: 11px;
+    width: 22px;
+    height: 22px;
   }
 }
