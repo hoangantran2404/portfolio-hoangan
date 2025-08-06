@@ -4,11 +4,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 0;
-  pointer-events: none;
+  z-index: 0; /* Đảm bảo nằm phía sau mọi nội dung */
+  pointer-events: none; /* Không ảnh hưởng đến thao tác chuột */
   overflow: hidden;
 }
-.main-content, .sidebar, .header, .footer {
+.main-content, .sidebar, ... {
   position: relative;
   z-index: 1;
 }
