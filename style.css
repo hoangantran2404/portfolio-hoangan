@@ -5,6 +5,7 @@ body {
   color: #fff;
 }
 
+/* ===== SIDEBAR LEFT ===== */
 .sidebar {
   position: fixed;
   left: 0;
@@ -23,7 +24,7 @@ body {
   width: 94%;
   max-width: 340px;
   min-width: 260px;
-  margin: 56px 0;
+  margin: 64px 0; /* mở rộng trên/dưới */
   border-radius: 36px;
   background: #222;
   box-shadow: 0 0 32px #0006;
@@ -33,6 +34,7 @@ body {
   align-items: center;
 }
 
+/* ===== SIDEBAR CONTENT ===== */
 .profile-img {
   width: 160px;
   height: 160px;
@@ -40,19 +42,16 @@ body {
   object-fit: cover;
   margin-bottom: 16px;
 }
-
 .profile-name {
   font-size: 2rem;
   font-family: 'Dancing Script', cursive;
   margin-top: 16px;
 }
-
 .profile-email, .profile-location {
   font-size: 1rem;
   margin: 8px 0;
   color: #aaa;
 }
-
 .profile-social {
   margin: 18px 0 0 0;
 }
@@ -71,7 +70,6 @@ body {
 .profile-social a:hover svg {
   filter: invert(0.8);
 }
-
 .btn-get-started {
   display: inline-block;
   margin-top: 24px;
@@ -88,7 +86,6 @@ body {
   background: orange;
   color: #222;
 }
-
 .status {
   margin-bottom: 12px;
   font-size: 1.1rem;
@@ -97,6 +94,7 @@ body {
   cursor: pointer;
 }
 
+/* ===== MAIN CONTENT ===== */
 .main-content {
   margin-left: 370px;
   padding: 40px;
@@ -105,8 +103,6 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
-/* Section layout */
 .section {
   border-radius: 24px;
   padding: 32px 40px;
@@ -114,8 +110,6 @@ body {
   background: transparent;
   box-shadow: none;
 }
-
-/* Home Section - center layout */
 .center-content {
   display: flex;
   flex-direction: column;
@@ -124,26 +118,22 @@ body {
   min-height: 80vh;
   text-align: center;
 }
-
 .main-home-content {
-  margin-top: 80px; /* space from top for center */
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .intro-location {
   color: #aaa;
   font-size: 1.1rem;
 }
-
 .intro-title {
   font-size: 2.8rem;
   font-weight: bold;
   margin: 18px 0;
 }
-
 .intro-desc.small {
   font-size: 1.10rem;
   color: #bbb;
@@ -151,7 +141,6 @@ body {
   margin: 16px auto 0 auto;
   opacity: 0.9;
 }
-
 .section-title {
   display: flex;
   align-items: center;
@@ -164,7 +153,6 @@ body {
   width: 32px;
   height: 32px;
 }
-
 .works-title {
   font-size: 2rem;
   font-weight: bold;
@@ -172,7 +160,6 @@ body {
   display: flex;
   align-items: center;
 }
-
 .work-item {
   margin-bottom: 24px;
   display: flex;
@@ -214,7 +201,6 @@ body {
   background: orange;
   color: #222;
 }
-
 .services-list {
   margin: 24px 0;
   font-size: 1.2rem;
@@ -227,7 +213,6 @@ body {
   opacity: 0.5;
   margin-top: 12px;
 }
-
 .about-works {
   display: flex;
   gap: 24px;
@@ -250,32 +235,32 @@ body {
   border-radius: 12px;
 }
 
-/* SIDE MENU RIGHT DESIGN & ICON EFFECTS */
+/* ===== SIDE MENU RIGHT ===== */
 .side-menu {
   position: fixed;
-  right: 32px;
+  right: 20px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 16px;
   z-index: 10;
   background: #23262c;
   border-radius: 32px;
-  padding: 32px 0;
+  padding: 22px 0;
   box-shadow: 0 6px 36px 0 #0009;
-  width: 80px;
+  width: 54px;          /* Thu nhỏ chiều ngang */
   align-items: center;
   border: 1.5px solid rgba(255,255,255,0.03);
 }
 
-/* Icon menu bên trong */
+/* Icon menu bên trong (thu nhỏ) */
 .side-menu a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 38px;         /* Thu nhỏ icon */
+  height: 38px;
   background: transparent;
   border-radius: 50%;
   transition: background .2s;
@@ -285,8 +270,8 @@ body {
 
 /* Mặc định: icon trắng, nền trong suốt */
 .side-menu a svg {
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   transition: filter 0.2s;
   filter: invert(1); /* icon trắng */
 }
@@ -345,8 +330,16 @@ body {
   }
   .side-menu {
     right: 8px;
-    gap: 16px;
-    padding: 16px 0;
-    width: 60px;
+    gap: 10px;
+    padding: 10px 0;
+    width: 38px;
+  }
+  .side-menu a {
+    width: 28px;
+    height: 28px;
+  }
+  .side-menu a svg {
+    width: 16px;
+    height: 16px;
   }
 }
