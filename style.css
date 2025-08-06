@@ -250,6 +250,7 @@ body {
   border-radius: 12px;
 }
 
+/* SIDE MENU ICONS EFFECTS */
 .side-menu {
   position: fixed;
   right: 32px;
@@ -282,6 +283,7 @@ body {
   filter: invert(1); /* icon trắng khi nền đen */
 }
 
+/* Khi section active (đang ở viewport) -> nền trắng, icon đen */
 .side-menu a.active {
   background: #fff;
 }
@@ -289,14 +291,21 @@ body {
   filter: invert(0); /* icon đen khi nền trắng */
 }
 
+/* Hover, nếu không phải active -> nền đen, icon trắng */
 .side-menu a:hover:not(.active) {
   background: #000;
 }
-
 .side-menu a:hover:not(.active) svg {
   filter: invert(1); /* icon trắng khi hover nền đen */
 }
 
+/* Đảm bảo icon luôn tương phản rõ ràng */
+.side-menu a:active svg,
+.side-menu a:focus svg {
+  outline: none;
+}
+
+/* Tooltip */
 .menu-tooltip {
   position: fixed;
   background: #222;
