@@ -30,16 +30,17 @@
     </div>
   </aside>
 
-  <!-- Main Content: cuộn lên và highlight icon menu -->
   <main class="main-content">
-    <!-- Home Section: layout giữa, mô tả nhỏ lại -->
+    <!-- Home Section: layout giữa, mô tả nhỏ lại, cách lề trên một khoảng -->
     <section class="home section center-content" id="home" data-menu="home">
-      <div class="intro-location">Missouri, US</div>
-      <h1 class="intro-title">Tran Hoang An Ngo</h1>
-      <h2 style="font-weight:normal;">Bachelor of Electrical Engineering Student</h2>
-      <p class="intro-desc small">
-        Welcome! I am Hoang An Ngo (short-term: Hoang An Ngo), currently pursuing a bachelor's degree in Electrical Engineering. My portfolio highlights my journey in engineering, coding, leadership, and practical business experiences.
-      </p>
+      <div class="main-home-content">
+        <div class="intro-location">Missouri, US</div>
+        <h1 class="intro-title">Tran Hoang An Ngo</h1>
+        <h2 style="font-weight:normal;">Bachelor of Electrical Engineering Student</h2>
+        <p class="intro-desc small">
+          Welcome! I am Hoang An Ngo (short-term: Hoang An Ngo), currently pursuing a bachelor's degree in Electrical Engineering. My portfolio highlights my journey in engineering, coding, leadership, and practical business experiences.
+        </p>
+      </div>
     </section>
 
     <!-- About Me Section -->
@@ -181,7 +182,7 @@
       const sections = document.querySelectorAll('main .section[data-menu]');
       const menuItems = document.querySelectorAll('.side-menu .menu-item');
       let current = null;
-      const offset = window.innerHeight * 0.2; // 20% từ trên xuống
+      const offset = window.innerHeight * 0.2;
       sections.forEach(section => {
         const rect = section.getBoundingClientRect();
         if(rect.top <= offset && rect.bottom > offset) {
