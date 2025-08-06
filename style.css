@@ -8,22 +8,21 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  width: 340px;
+  width: 370px;
   height: 100vh;
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Không kéo dài sát cạnh trên/dưới */
   pointer-events: none;
 }
 .profile-card {
   pointer-events: auto;
-  width: 90%;
-  max-width: 320px;
+  width: 94%;
+  max-width: 340px;
   min-width: 260px;
-  margin: 40px 0;
-  border-radius: 32px;
+  margin: 56px 0;
+  border-radius: 36px;
   background: #222;
   box-shadow: 0 0 32px #0006;
   text-align: center;
@@ -79,7 +78,7 @@ body {
 }
 .status { margin-bottom: 12px; font-size: 1.1rem; color: #fff; background: none; cursor: pointer; }
 .main-content {
-  margin-left: 340px;
+  margin-left: 370px;
   padding: 40px;
   z-index: 1;
 }
