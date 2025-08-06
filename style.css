@@ -236,7 +236,7 @@ body {
   border-radius: 12px;
 }
 
-/* ===== SIDE MENU RIGHT (Vùng xám và icon nhỏ hơn, icon giữa) ===== */
+/* ===== SIDE MENU RIGHT (Hoàn thiện: icon nhỏ gọn, giữa vùng xám, không mất góc) ===== */
 .side-menu {
   position: fixed;
   right: 24px;
@@ -250,7 +250,7 @@ body {
   border-radius: 22px;
   padding: 14px 0;
   box-shadow: 0 4px 14px 0 #0007;
-  width: 44px; /* vùng xám nhỏ hơn */
+  width: 44px;
   align-items: center;
   border: 1px solid rgba(255,255,255,0.03);
 }
@@ -259,23 +259,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;  /* icon vừa vùng xám */
+  width: 26px;
   height: 26px;
   background: transparent;
   border-radius: 50%;
   transition: background .2s;
   position: relative;
   cursor: pointer;
+  overflow: hidden; /* Đảm bảo icon không vượt ra ngoài vùng xám */
 }
 
 .side-menu a svg {
-  width: 15px;  /* icon nhỏ hơn */
-  height: 15px;
+  width: 14px;  /* icon nhỏ hơn giúp không bị mất góc */
+  height: 14px;
   display: block;
   margin: auto;
   transition: filter 0.2s;
   filter: invert(1);
   object-fit: contain;
+  pointer-events: none;
 }
 
 .side-menu a.active {
