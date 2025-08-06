@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio - Jayden</title>
+  <title>Jayden Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="abstract-ball.css">
 </head>
 <body>
-  <!-- Background 3D Ball -->
+  <!-- Background 3D Ball phía dưới -->
   <div id="abstract-ball-bg"></div>
-  
-  <!-- Sidebar -->
+
+  <!-- Sidebar trái -->
   <aside class="sidebar">
     <div class="profile-card">
       <div class="status">Available for 3 projects</div>
@@ -20,32 +20,33 @@
       <div class="profile-email">Jayden.design@gmail.com</div>
       <div class="profile-location">Based in San Fransisco, CA</div>
       <div class="profile-social">
-        <a href="#"><img src="icon-x.svg" alt="X"></a>
-        <a href="#"><img src="icon-dribbble.svg" alt="Dribbble"></a>
-        <a href="#"><img src="icon-instagram.svg" alt="Instagram"></a>
-        <a href="#"><img src="icon-facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="icon-x.svg"></a>
+        <a href="#"><img src="icon-dribbble.svg"></a>
+        <a href="#"><img src="icon-instagram.svg"></a>
+        <a href="#"><img src="icon-facebook.svg"></a>
       </div>
       <a href="#" class="btn-get-started">Get Started <span>→</span></a>
     </div>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Nội dung chính bên phải -->
   <main class="main-content">
-    <!-- Introduction -->
-    <section class="intro">
+    <!-- Section: Introduction -->
+    <section class="intro card">
       <div class="intro-location">San Francisco, CA 10:24 AM</div>
-      <div class="intro-title">Making Your World a Pain Free Experience</div>
-      <div class="intro-desc">
-        My passion lies in crafting elegant, straightforward digital experiences. It's a love for simplicity, pure and simple.
-      </div>
+      <h1 class="intro-title">Making Your World a Pain Free Experience</h1>
+      <p class="intro-desc">My passion lies in crafting elegant, straightforward digital experiences. It's a love for simplicity, pure and simple.</p>
       <div class="intro-tags">
-        <span>Branding</span><span>Art Direction</span><span>UI Design</span><span>Webflow Development</span>
+        <span>Branding</span>
+        <span>Art Direction</span>
+        <span>UI Design</span>
+        <span>Webflow Development</span>
       </div>
     </section>
 
-    <!-- Selected Work -->
-    <section class="works">
-     div class="works-title"><img src="icon-works.svg" alt="Works"> Works</div>
+    <!-- Section: Selected Work -->
+    <section class="works card" id="works">
+      <div class="section-title"><img src="icon-works.svg"> Selected Work</div>
       <div class="work-item">
         <img src="work-helvetica.jpg" alt="Helve Tica Website Redesign">
         <div class="work-info">
@@ -55,49 +56,47 @@
           <a href="#" class="work-link">→</a>
         </div>
       </div>
-      <!-- Other works... -->
+      <!-- Thêm các dự án khác nếu có -->
     </section>
 
-    <!-- Services -->
-    <section class="services">
-      <div class="services-title"><img src="icon-services.svg" alt="Services"> Services</div>
+    <!-- Section: Services -->
+    <section class="services card" id="services">
+      <div class="section-title"><img src="icon-services.svg"> Graphic Design</div>
       <ul class="services-list">
         <li>Typography & Color Systems</li>
         <li>Logo Design</li>
         <li>Brand Guidelines</li>
       </ul>
       <div class="services-other">
-        <div class="service-tag">UI/UX Design (02)</div>
-        <div class="service-tag">Webflow Dev (03)</div>
+        <div class="service-tag">UI/UX Design</div>
+        <div class="service-tag">Webflow Dev</div>
       </div>
     </section>
 
-    <!-- About Me -->
-    <section class="about">
-     <div class="about-title"><img src="icon-about.svg" alt="About"> About</div>
-      <div class="about-desc">
-        Every design has a starting point, and for truly impactful visuals. It's the narrative that guides the creative process, ensuring the final product resonates with meaning and purpose. We believe that understanding the story is paramount.
-      </div>
+    <!-- Section: About -->
+    <section class="about card" id="about">
+      <div class="section-title"><img src="icon-about.svg"> About Me</div>
+      <h2>Behind every great design is an even greater story</h2>
+      <p>Every design has a starting point, and for truly impactful visuals. It's the narrative that guides the creative process, ensuring the final product resonates with meaning and purpose. We believe that understanding the story is paramount.</p>
       <div class="about-works">
         <div class="work-card">@Jayden.design</div>
-        <div class="work-card"><img src="project1.jpg" alt=""></div>
-        <div class="work-card"><img src="project2.jpg" alt=""></div>
-        <div class="work-card"><img src="project3.jpg" alt=""></div>
+        <div class="work-card"><img src="project1.jpg"></div>
+        <div class="work-card"><img src="project2.jpg"></div>
+        <div class="work-card"><img src="project3.jpg"></div>
       </div>
-      <!-- Slider arrows... -->
     </section>
   </main>
 
-  <!-- Sidebar navigation (right) -->
+  <!-- Side Menu nhỏ bên phải, căn giữa -->
   <nav class="side-menu">
-  <a href="#home"><img src="icon-home.svg" alt="Home"></a>
-  <a href="#works"><img src="icon-works.svg" alt="Works"></a>
-  <a href="#services"><img src="icon-services.svg" alt="Services"></a>
-  <a href="#about"><img src="icon-about.svg" alt="About"></a>
-  <a href="#contact"><img src="icon-contact.svg" alt="Contact"></a>
-</nav>
+    <a href="#intro"><img src="icon-home.svg" alt="Home"></a>
+    <a href="#works"><img src="icon-works.svg" alt="Works"></a>
+    <a href="#services"><img src="icon-services.svg" alt="Services"></a>
+    <a href="#about"><img src="icon-about.svg" alt="About"></a>
+    <a href="#contact"><img src="icon-contact.svg" alt="Contact"></a>
+  </nav>
 
-  <!-- Scripts -->
+  <!-- Scripts hiệu ứng 3D -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="abstract-ball.js"></script>
 </body>
