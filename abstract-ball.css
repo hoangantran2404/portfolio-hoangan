@@ -3,7 +3,7 @@
   left: 0;
   bottom: 0;
   width: 100vw;
-  height: 60vh; /* chỉ chiếm phần dưới */
+  height: 60vh; /* hoặc 50vh */
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
