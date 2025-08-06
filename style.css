@@ -96,14 +96,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 80vh;
   text-align: center;
+}
+.main-home-content {
+  margin-top: 80px; /* cách lề trên một khoảng */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .intro-location { color: #aaa; font-size: 1.1rem; }
 .intro-title { font-size: 2.8rem; font-weight: bold; margin: 18px 0; }
 .intro-desc.small {
-  font-size: 1.15rem;
+  font-size: 1.10rem;
   color: #bbb;
   max-width: 520px;
   margin: 16px auto 0 auto;
@@ -172,13 +179,17 @@ body {
   position: relative;
   cursor: pointer;
 }
-.side-menu a.active,
-.side-menu a:hover {
+.side-menu a.active {
   background: #fff;
 }
-.side-menu a.active svg,
-.side-menu a:hover svg {
+.side-menu a.active svg {
   filter: brightness(0) invert(1);
+}
+.side-menu a:hover:not(.active) {
+  background: #000;
+}
+.side-menu a:hover:not(.active) svg {
+  filter: none;
 }
 .side-menu svg { width: 32px; height: 32px; transition: filter 0.2s; }
 
